@@ -28,7 +28,7 @@ const Menu = () => {
       <nav>
           <ul className="menubar">
               <li className="menu"><Link href="/" className="can-selectMenu">Home</Link></li>
-              <li className="menu"><Link href="/group/hololive" className="can-selectMenu">ホロライブJP</Link></li>
+              <li className="menu"><Link href="/hololive" className="can-selectMenu">ホロライブJP</Link></li>
               <li className="menu">準備中</li>
               <li className="menu">準備中</li>
               <li className="menu">Info</li>

@@ -37,6 +37,7 @@ function Home() {
             <Menu />
           </div>
           <hr />
+          <br />
           <LineCharts />
           <hr/>
           <div className="copyright">
@@ -50,8 +51,8 @@ const Menu = () => {
   return (
     <nav>
         <ul className="menubar">
-            <li className="menu">Home</li>
-            <li className="menu"><Link href="/hololive" className="can-selectMenu">ホロライブJP</Link></li>
+            <li className="menu"><Link href="/" className="can-selectMenu">Home</Link></li>
+            <li className="menu">ホロライブJP</li>
             <li className="menu">準備中</li>
             <li className="menu">準備中</li>
             <li className="menu"><Link href="/info" className="can-selectMenu">Info</Link></li>
@@ -96,11 +97,7 @@ const LineCharts = () => {
 
 
   let Lines = video_obj_List.map((video) => {
-    let waiting_times = [];
-    let watching_times = [];
     let times = [];
-    let waiting_viewers = [];
-    let watching_viewers = [];
     let viewers = [];
     let status = "";
     let borderColor = "";
@@ -109,30 +106,21 @@ const LineCharts = () => {
   
     for (let i = 0; i < video.viewersData.length; i++ ) {
       let time_list = video.viewersData[i].time.split(" ");
-
       let time = time_list[1];
+      times.push(time);
+
       let viewer = video.viewersData[i].viewers;
+      viewers.push(viewer);
 
       status = time_list[2]
-      if (status == "watching") {
-        watching_times.push(time);
-        watching_viewers.push(viewer);
-      } else {
-        waiting_times.push(time);
-        waiting_viewers.push(viewer);
-      }
     }
 
     if (status == "watching") {
-      borderColor = "rgba(255,100,100,1)";
-      point_borderColor = "rgba(255,100,100,1)";
-      times = watching_times;
-      viewers = watching_viewers
+      borderColor = "rgba(255,100,100,1)"
+      point_borderColor = "rgba(255,100,100,1)"
     } else {
-      borderColor = "rgba(64,218,131,1)";
-      point_borderColor = "rgba(75,192,192,1)";
-      times = waiting_times;
-      viewers = waiting_viewers;
+      borderColor = "rgba(64,218,131,1)"
+      point_borderColor = "rgba(75,192,192,1)"
     }
 
     let Linedata = {
