@@ -1,0 +1,82 @@
+@media screen and (max-width: 767px) {
+    /* スタイルの定義 */
+
+    body {
+        width: 100vw;  /* 画面幅に合わせる */
+        height: 100vh;  /* 画面高さに合わせる */
+    }
+      
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background-color: #dbd6d6;
+    }
+
+    .can-selectMenu {
+        color: #3e2e2e;
+        font-weight: bold;
+    }
+    
+    .menubar {
+        padding: 10px 0px 10px 0px;
+    }
+
+    .title {
+        padding: 0rem 1rem;
+        border-left: 4px solid #000;
+    }
+
+    nav ul {
+        list-style: none;  /* リストスタイルを非表示にする */
+        margin: 0;
+        padding: 0;
+    }
+
+    .Line-container {
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .container-border {
+        width: auto;
+        padding: 2px;
+        background-color: #f0eeeb;
+    }
+
+    .video-title {
+        width: auto;
+    }
+
+    .MyLongChart {
+        display: flex;
+        align-items: center;
+        width: 65vw;
+        height: 90px;
+        padding: 0px 0px 5px 0px ;
+    }
+
+    .viewers-container {
+        padding: 0px 5px 0px 5px;
+    }
+
+    .icon {
+        border-radius: 50%; /* 角を丸める */
+        height: 70px;
+        padding: 0px;
+    }
+
+    .live-list {
+        list-style: none;
+        padding: 0px;
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: center;
+    }
+}

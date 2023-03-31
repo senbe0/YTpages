@@ -1,0 +1,104 @@
+
+/* PC用のスタイル */
+@media screen and (min-width: 768px) {
+    /* スタイルの定義 */
+
+    body {
+        display: flex;
+        justify-content: center;
+    }
+    
+    a {
+        color: #000000;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        background-color: #dbd6d6;
+    }
+    
+    .can-selectMenu {
+        color: #3e2e2e;
+        font-weight: bold;
+    }
+    
+    .title {
+        padding: 1rem 2rem;
+        border-left: 4px solid #000;
+    }
+    
+    .menu-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .menubar {
+        display: flex;
+    }
+    
+    
+    .menu {
+        display: block;
+        text-decoration: none;
+        color: gray;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    
+    
+    .Line-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .container-border {
+        width: auto;
+        padding: 2px;
+        background-color: #f0eeeb;
+    }
+    
+    .MyLongChart {
+        display: flex;
+        align-items: center;
+        width: 600px;
+        height: 80px;
+        padding: 0px 0px 5px 0px ;
+    }
+    
+    .MyChart {
+        width: 500px;
+        height: 250px;
+    }
+
+    .video-title {
+        width: 800px;
+    }
+    
+    .icon {
+        border-radius: 50%; /* 角を丸める */
+        height: 70px;
+    }
+    
+    .viewers-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .viewers {
+        padding-left: 15px;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+    }
+    
+    .copyright {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .info-desc {
+        width: 800px;
+    }
+    
+}

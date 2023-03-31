@@ -7,6 +7,7 @@ import Image from "next/image";
 import Chart, { Colors } from 'chart.js/auto';
 
 
+
 import SiteTitle from "components/SiteTitle.js";
 import Copyright from "components/Copyright.js";
 
@@ -100,6 +101,7 @@ const LineCharts = () => {
     let viewers = [];
     let status = "";
     let borderColor = "";
+    let point_borderColor = "";
     let viewers_now = video.viewersData[video.viewersData.length-1].viewers;
   
     for (let i = 0; i < video.viewersData.length; i++ ) {
@@ -115,8 +117,10 @@ const LineCharts = () => {
 
     if (status == "watching") {
       borderColor = "rgba(255,100,100,1)"
+      point_borderColor = "rgba(255,100,100,1)"
     } else {
       borderColor = "rgba(64,218,131,1)"
+      point_borderColor = "rgba(75,192,192,1)"
     }
 
     let Linedata = {
@@ -132,7 +136,7 @@ const LineCharts = () => {
           borderDash: [],
           borderDashOffset: 0.0,
           borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(75,192,192,1)',
+          pointBorderColor: point_borderColor,
           pointBackgroundColor: '#fff',
           pointBorderWidth: 0.5,
           pointHoverRadius: 5,
@@ -160,7 +164,6 @@ const LineCharts = () => {
           </div>
             <Line data={Linedata} options={LineLongOptions} />
         </div>
-
       </div>
     )
   })
@@ -168,7 +171,7 @@ const LineCharts = () => {
   return (
     <ul className="live-list">
       {NoScheduleMsg}
-      {Lines.map((line)=> <li className="Line-container">{line}</li>)}
+      {Lines.map((line)=> <div><li className="Line-container">{line}</li>        <div className="container-border"></div></div>)}
     </ul>
   )
 }
