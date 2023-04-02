@@ -65,11 +65,11 @@ const LineCharts = () => {
   const [video_obj_List, setVideo_obj_List] = useState([]);
 
   useEffect(() => {
-    fetch('/api/data')
+    fetch("/api/data")
       .then((res) => res.json())
-      .then((data) => {
-        data.sort((a, b) => b.viewersData[b.viewersData.length-1].viewers - a.viewersData[a.viewersData.length-1].viewers);
-        data.sort((a, b) => {
+      .then((video_obj_list) => {
+        video_obj_list.sort((a, b) => b.viewersData[b.viewersData.length-1].viewers - a.viewersData[a.viewersData.length-1].viewers);
+        video_obj_list.sort((a, b) => {
           let a_time_list = a.viewersData[a.viewersData.length-1].time.split(" ");
           let a_status = a_time_list[2];
           let b_time_list = b.viewersData[b.viewersData.length-1].time.split(" ");
@@ -82,7 +82,7 @@ const LineCharts = () => {
             return 0;
           }
         });
-        setVideo_obj_List(data);
+        setVideo_obj_List(video_obj_list);
       });
   }, [])
 
