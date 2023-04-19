@@ -4,7 +4,7 @@ const SiteTitle = () => {
     return (
       <div className="title">
         <strong>
-        Vtuber同時接続者数<br/>
+        Hololive同時接続者数<br/>
         リアルタイム シンプルUI
         </strong>
       </div>
