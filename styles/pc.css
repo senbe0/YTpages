@@ -102,4 +102,65 @@
         width: 800px;
     }
     
+    .ad-baner {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ad-Left {
+        margin-top: 100px;
+        margin-right: 20px;
+    }
+
+    .ad-Right {
+        margin-top: 100px;
+        margin-left: 20px;
+    }
+
+    .main {
+        display: flex;
+    }
+
+
+    .line-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+
+
+      
+      .centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .color-line-container {
+        display: flex;
+        align-items: center;
+      }
+      
+      .text {
+        margin-right: 5px;
+      }
+      
+      .red-line,
+      .green-line {
+        height: 5px;
+        width: 50px;
+      }
+      
+      .red-line {
+        background-color: rgb(254, 78, 78);
+        margin-right: 15px;
+      }
+      
+      .green-line {
+        background-color: rgb(75, 232, 75);
+      }
+      
+      
+      
 }

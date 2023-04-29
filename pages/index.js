@@ -10,7 +10,12 @@ import Chart, { Colors } from 'chart.js/auto';
 
 import SiteTitle from "components/SiteTitle.js";
 import Copyright from "components/Copyright.js";
+import Color_lines from "components/Color_lines";
 
+import Ad_ntt from "components/Ad_ntt";
+import Ad_furyu from "components/Ad_furyu";
+import Ad_furyu_big from "components/Ad_furyu_big"
+import Ad_eeo from "components/Ad_eeo";
 
 
 let LineLongOptions = {
@@ -31,16 +36,31 @@ let LineLongOptions = {
 
 function Home() {
     return (
-        <div>
-          <div className="menu-container">
-            <SiteTitle />
-            <Menu />
+        <div className="main">
+          <div className="ad-Left">
+            <Ad_furyu_big />
           </div>
-          <hr />
-          <LineCharts />
-          <hr/>
-          <div className="copyright">
-            <Copyright />
+          <div>
+            <div className="menu-container">
+              <SiteTitle />
+              <Menu />
+            </div>
+            <hr />
+            <div className="ad-baner">
+              <Ad_furyu />
+            </div>
+            <Color_lines />
+            <LineCharts />
+            <div className="ad-baner">
+              <Ad_ntt />
+            </div>
+            <hr/>
+            <div className="copyright">
+              <Copyright />
+            </div>
+          </div>
+          <div className="ad-Right">
+            <Ad_eeo />
           </div>
         </div>
     );
@@ -51,9 +71,9 @@ const Menu = () => {
     <nav>
         <ul className="menubar">
             <li className="menu">Home</li>
-            <li className="menu"><Link href="/hololive" className="can-selectMenu">ホロライブJP</Link></li>
-            <li className="menu">準備中</li>
-            <li className="menu">準備中</li>
+            <li className="menu"><Link href="/group/jp" className="can-selectMenu">JP</Link></li>
+            <li className="menu"><Link href="/group/en" className="can-selectMenu">EN</Link></li>
+            <li className="menu"><Link href="/group/id" className="can-selectMenu">ID</Link></li>
             <li className="menu"><Link href="/info" className="can-selectMenu">Info</Link></li>
         </ul>
     </nav>
@@ -65,7 +85,7 @@ const LineCharts = () => {
   const [video_obj_List, setVideo_obj_List] = useState([]);
 
   useEffect(() => {
-    fetch("/api/data")
+    fetch("/api/all")
       .then((res) => res.json())
       .then((video_obj_list) => {
         video_obj_list.sort((a, b) => b.viewersData[b.viewersData.length-1].viewers - a.viewersData[a.viewersData.length-1].viewers);

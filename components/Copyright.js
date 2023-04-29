@@ -5,8 +5,8 @@ import Image from "next/image"
 const Copyright = () => {
     return (
       <div className="copyright">
-        <small className="copyright-str">© 2023 VtuberRealTime&nbsp;&nbsp;</small>
-        <Link href=""><Image src="/Twitter_icon.png" height="20" width="20"/></Link>
+        <small className="copyright-str">© 2023 HololiveRealTime&nbsp;&nbsp;</small>
+        <Link href="https://twitter.com/countstream58"><Image src="/Twitter_icon.png" height="20" width="20"/></Link>
       </div>
     )
 }

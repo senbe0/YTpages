@@ -1,4 +1,4 @@
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 770px) {
     /* スタイルの定義 */
 
     body {
@@ -80,4 +80,59 @@
         display: flex;
         justify-content: center;
     }
+
+    .ad_baner {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ad-Left {
+        display: none;
+    }
+
+    .ad-Right {
+        display: flex;
+        justify-content: center;
+    }
+
+    .furyu {
+        width: 380px;
+        height: auto;
+    }
+
+    .ntt {
+        width: 380px;
+        height: auto;
+    }
+
+
+    .centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .color-line-container {
+        display: flex;
+        align-items: center;
+      }
+      
+      .text {
+        margin-right: 5px;
+      }
+      
+      .red-line,
+      .green-line {
+        height: 5px;
+        width: 50px;
+      }
+      
+      .red-line {
+        background-color: rgb(254, 78, 78);
+        margin-right: 15px;
+      }
+      
+      .green-line {
+        background-color: rgb(75, 232, 75);
+      }
 }
