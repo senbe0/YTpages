@@ -7,7 +7,7 @@ import Image from "next/image";
 import Chart, { Colors } from 'chart.js/auto';
 
 
-
+import Head_site from "components/Head";
 import SiteTitle from "components/SiteTitle.js";
 import Copyright from "components/Copyright.js";
 import Color_lines from "components/Color_lines";
@@ -37,6 +37,7 @@ let LineLongOptions = {
 function Home() {
     return (
         <div className="main">
+          <Head_site />
           <div className="ad-Left">
             <Ad_furyu_big />
           </div>
