@@ -6,7 +6,6 @@ import Image from "next/image";
 // Don't delete this package.
 import Chart, { Colors } from 'chart.js/auto';
 
-
 import Head_site from "components/Head";
 import SiteTitle from "components/SiteTitle.js";
 import Copyright from "components/Copyright.js";
@@ -50,6 +49,8 @@ function Home() {
             <div className="ad-baner">
               <Ad_furyu />
             </div>
+            <strong>※現在試験運用中の為、バグが発生したり、リストされない配信があります。</strong><br/>
+            <strong>※現在試験運用中の為、バグが発生したり、リストされない配信があります。</strong>
             <Color_lines />
             <LineCharts />
             <div className="ad-baner">

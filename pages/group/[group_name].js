@@ -7,8 +7,6 @@ import Image from "next/image";
 // Don't delete this package.
 import Chart, { Colors } from 'chart.js/auto';
 
-
-
 import SiteTitle from "components/SiteTitle.js";
 import Copyright from "components/Copyright.js";
 import Color_lines from "components/Color_lines";

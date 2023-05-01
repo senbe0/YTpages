@@ -16,7 +16,7 @@ function Info () {
           </div>
           <hr/>
           <div className="copyright">
-          <Copyright />
+            <Copyright />
           </div>
         </div>
     )
