@@ -51,6 +51,8 @@ function Home() {
             </div>
             <strong>※現在試験運用中の為、バグが発生したり、リストされない配信があります。</strong><br/>
             <strong>※Since this is currently under test operation, bugs may occur or the distribution may not be listed.</strong>
+            <strong>※再起動が行われたため、現在全ての配信がリストされていません。</strong>
+            <strong>※Currently not all streaming are listed due to reboot. It will take some time until all streamings are listed.</strong>
             <Color_lines />
             <LineCharts />
             <div className="ad-baner">
