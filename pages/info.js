@@ -55,6 +55,9 @@ const Description = () => {
             <h2>その他</h2>
             <p>手動でvtuberの登録を行っております。漏れが生じている場合はご連絡ください。</p>
             <p>何か連絡がございましたら、twitterにご連絡下さい。個人で片手間に運用してます故、返信が遅れることがございます。ご了承ください。</p>
+            <p>
+              <div>Twitter: <Link href="https://twitter.com/countstream58" target="_blank">countstream</Link></div>
+            </p>
         </div>
     )
 }
