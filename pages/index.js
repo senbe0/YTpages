@@ -50,9 +50,7 @@ function Home() {
               <Ad_furyu />
             </div>
             <strong>※現在試験運用中。</strong><br/>
-            <strong>※This is currently under TEST Operation.</strong><br/>
-            <strong>※現在全ての配信がリストされていません。</strong><br/>
-            <strong>※Currently NOT all streaming are listed due to reboot. </strong><br/>
+            <h1>※Currently under maintenance.</h1>
             <Color_lines />
             <LineCharts />
             <div className="ad-baner">
