@@ -6,7 +6,7 @@ const Head_site = () => {
         <div>
             <Head>
                 <title>Hololive同時接続者数 リアルタイム シンプルUI</title>
-                <meta name="description" content="Holiveの同時接続者数ランキングをチェックする。シンプルなUIで、勢いのあるライブが一目で分かる。" />
+                <meta name="description" content="ホロライブの同時接続者数ランキングをチェックする。シンプルなUIで、勢いのあるライブが一目で分かる。" />
                 {/* Google Analytics */}
                 <script
                     async

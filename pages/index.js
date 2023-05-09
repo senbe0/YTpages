@@ -49,8 +49,6 @@ function Home() {
             <div className="ad-baner">
               <Ad_furyu />
             </div>
-            <strong>※試験運用につき全ての配信がリストされていません。</strong><br/>
-            <strong>※Not all streaming are listed due to test operation.</strong>
             <Color_lines />
             <LineCharts />
             <div className="ad-baner">
