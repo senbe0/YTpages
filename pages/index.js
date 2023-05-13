@@ -11,10 +11,10 @@ import SiteTitle from "components/SiteTitle.js";
 import Copyright from "components/Copyright.js";
 import Color_lines from "components/Color_lines";
 
-import Ad_ntt from "components/Ad_ntt";
-import Ad_furyu from "components/Ad_furyu";
-import Ad_furyu_big from "components/Ad_furyu_big"
-import Ad_eeo from "components/Ad_eeo";
+import Ad_ntt from "components/Ad_bottom";
+import Ad_furyu from "components/Ad_top";
+import Ad_furyu_big from "components/Ad_left"
+import Ad_eeo from "components/Ad_right";
 
 
 let LineLongOptions = {
