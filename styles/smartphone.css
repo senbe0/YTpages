@@ -133,4 +133,9 @@
     .green-line {
         background-color: rgb(75, 232, 75);
     }
+
+    .ad-baner {
+        width: 95vw;
+        height: auto;
+    }
 }

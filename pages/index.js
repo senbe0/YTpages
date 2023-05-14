@@ -11,8 +11,8 @@ import SiteTitle from "components/SiteTitle.js";
 import Copyright from "components/Copyright.js";
 import Color_lines from "components/Color_lines";
 
-import Ad_ntt from "components/Ad_bottom";
-import Ad_furyu from "components/Ad_top";
+import Ad_bottom from "components/Ad_bottom";
+import Ad_top from "components/Ad_top";
 import Ad_furyu_big from "components/Ad_left"
 import Ad_eeo from "components/Ad_right";
 
@@ -46,13 +46,13 @@ function Home() {
               <Menu />
             </div>
             <hr />
-            <div className="ad-baner">
-              <Ad_furyu />
+            <div>
+              <Ad_top />
             </div>
             <Color_lines />
             <LineCharts />
-            <div className="ad-baner">
-              <Ad_ntt />
+            <div>
+              <Ad_bottom />
             </div>
             <hr/>
             <div className="copyright">
