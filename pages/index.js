@@ -13,7 +13,7 @@ import Color_lines from "components/Color_lines";
 
 import Ad_bottom from "components/Ad_bottom";
 import Ad_top from "components/Ad_top";
-import Ad_furyu_big from "components/Ad_left"
+import Ad_left from "components/Ad_left"
 import Ad_eeo from "components/Ad_right";
 
 
@@ -38,7 +38,7 @@ function Home() {
         <div className="main">
           <Head_site />
           <div className="ad-Left">
-            <Ad_furyu_big />
+            <Ad_left />
           </div>
           <div>
             <div className="menu-container">
@@ -46,12 +46,12 @@ function Home() {
               <Menu />
             </div>
             <hr />
-            <div>
+            <div className="banner-container">
               <Ad_top />
             </div>
             <Color_lines />
             <LineCharts />
-            <div>
+            <div className="banner-container">
               <Ad_bottom />
             </div>
             <hr/>

@@ -101,6 +101,11 @@
         width: 800px;
     }
 
+    .banner-container {
+        display: flex;
+        justify-content: center;
+    }
+
     .ad-baner {
         display: flex;
         justify-content: center;
