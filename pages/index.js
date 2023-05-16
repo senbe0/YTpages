@@ -49,9 +49,6 @@ function Home() {
             <div>
               <Ad_top />
             </div>
-            <div>
-              <h1>※Currently <strong>under maintenance.</strong> Some live broadcasts are not listed.</h1>
-            </div>
             <Color_lines />
             <LineCharts />
             <div>
