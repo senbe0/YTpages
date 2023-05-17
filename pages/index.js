@@ -50,6 +50,7 @@ function Home() {
               <Ad_top />
             </div>
             <Color_lines />
+            <p>※Currently under maintenance.Some live broadcasts are not listed.</p>
             <LineCharts />
             <div className="banner-container">
               <Ad_bottom />
