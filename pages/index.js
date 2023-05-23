@@ -14,7 +14,7 @@ import Color_lines from "components/Color_lines";
 import Ad_bottom from "components/Ad_bottom";
 import Ad_top from "components/Ad_top";
 import Ad_left from "components/Ad_left"
-import Ad_eeo from "components/Ad_right";
+import Ad_right from "components/Ad_right";
 
 
 let LineLongOptions = {
@@ -60,7 +60,7 @@ function Home() {
             </div>
           </div>
           <div className="ad-Right">
-            <Ad_eeo />
+            <Ad_right />
           </div>
         </div>
     );
@@ -81,8 +81,34 @@ const Menu = () => {
 }
 
 const LineCharts = () => {
+  const [showImage, setShowImage] = useState({});
+  const [clickStates, setClickStates] = useState({});
+
   const [NoScheduleMsg, setNoScheduleMsg] = useState("");
   const [video_obj_List, setVideo_obj_List] = useState([]);
+
+  const [isTouchDevice, setIsTouchDevice] = useState(false); // 初期状態をfalseに設定
+
+  useEffect(() => {
+    // コンポーネントがマウントされたときに実行
+    if (typeof window !== 'undefined') {
+      // windowが定義されているときだけ（つまりブラウザ環境のときだけ）タッチデバイスかどうかをチェック
+      setIsTouchDevice('ontouchstart' in window);
+    }
+  }, []); 
+
+  const handleClick = (e, videoId) => {
+    if (isTouchDevice) { // タッチデバイスの場合
+      if (!(videoId in clickStates) || !clickStates[videoId]) {
+        // 最初のクリック時
+        e.preventDefault(); // リンク先に飛ばないようにする
+        setClickStates({[videoId]: true}); // クリック状態をtrueにする (他のクリック状態はリセット)
+      } else {
+        // 2回目のクリック時
+        setClickStates(prevState => ({...prevState, [videoId]: false})); // クリック状態をリセットする
+      }
+    }
+  }
 
   useEffect(() => {
     fetch("/api/all")
@@ -116,6 +142,8 @@ const LineCharts = () => {
 
 
   let Lines = video_obj_List.map((video) => {
+    let video_imageURL = `http://img.youtube.com/vi/${video.videoID}/maxresdefault.jpg`
+
     let waiting_times = [];
     let watching_times = [];
     let times = [];
@@ -128,6 +156,7 @@ const LineCharts = () => {
     let viewers_now = video.viewersData[video.viewersData.length-1].viewers;
   
     for (let i = 0; i < video.viewersData.length; i++ ) {
+
       let time_list = video.viewersData[i].time.split(" ");
 
       let time = time_list[1];
@@ -184,9 +213,30 @@ const LineCharts = () => {
       <div>
         <div className="video-title">
           <Link href={video.videoURL} target="_blank">
-            {video.videoTitle}
+            <div
+                onClick={(e) => handleClick(e, video.videoID)}
+                onMouseEnter={() => {
+                  setShowImage(prevState => ({...prevState, [video.videoID]: true }));  // ホバーしたビデオのIDのみtrueに設定
+                }}
+                onMouseLeave={() => {
+                  setShowImage(prevState => ({...prevState, [video.videoID]: false }));  // ホバーが外れたらfalseに設定
+                }}
+              >
+                {video.videoTitle}
+            </div>
           </Link>
+          {(showImage[video.videoID] || clickStates[video.videoID]) &&  // クリック状態も確認
+            <div style={{ position: 'absolute' }}>
+                <Image 
+                  src={video_imageURL}  // stateから画像URLを取得
+                  alt={video.videoTitle}
+                  width={200}
+                  height={112}
+                />
+            </div>
+          }
         </div>
+
         <div className="MyLongChart">
           <Link href={`https://youtube.com/channel/`+video.channelID} target="_blank">
             <Image src={video.iconURL} className="icon" width="70" height="70"/>

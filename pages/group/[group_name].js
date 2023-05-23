@@ -7,14 +7,15 @@ import Image from "next/image";
 // Don't delete this package.
 import Chart, { Colors } from 'chart.js/auto';
 
+import Head_site from "components/Head";
 import SiteTitle from "components/SiteTitle.js";
 import Copyright from "components/Copyright.js";
 import Color_lines from "components/Color_lines";
 
-import Ad_ntt from "components/Ad_bottom";
-import Ad_furyu from "components/Ad_top";
-import Ad_furyu_big from "components/Ad_left"
-import Ad_eeo from "components/Ad_right";
+import Ad_bottom from "components/Ad_bottom";
+import Ad_top from "components/Ad_top";
+import Ad_left from "components/Ad_left"
+import Ad_right from "components/Ad_right";
 
 
 
@@ -40,8 +41,9 @@ function Home() {
   const { group_name } = router.query;
   return (
       <div className="main">
+        <Head_site />
         <div className="ad-Left">
-          <Ad_furyu_big />
+          <Ad_left />
         </div>
         <div>
           <div className="menu-container">
@@ -50,12 +52,12 @@ function Home() {
           </div>
           <hr />
           <div className="ad-baner">
-            <Ad_furyu />
+            <Ad_top />
           </div>
           <Color_lines />
           <LineCharts />
           <div className="ad-baner">
-            <Ad_ntt />
+            <Ad_bottom />
           </div>
           <hr/>
           <div className="copyright">
@@ -63,7 +65,7 @@ function Home() {
           </div>
         </div>
         <div className="ad-Right">
-          <Ad_eeo />
+          <Ad_right />
         </div>
       </div>
   );
@@ -102,9 +104,34 @@ const LineCharts = () => {
   const router = useRouter();
   const { group_name } = router.query;
 
+  const [showImage, setShowImage] = useState({});
+  const [clickStates, setClickStates] = useState({});
+
   const [NoScheduleMsg, setNoScheduleMsg] = useState("");
   const [video_obj_List, setVideo_obj_List] = useState([]);
 
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // コンポーネントがマウントされたときに実行
+    if (typeof window !== 'undefined') {
+      // windowが定義されているときだけ（つまりブラウザ環境のときだけ）タッチデバイスかどうかをチェック
+      setIsTouchDevice('ontouchstart' in window);
+    }
+  }, []); 
+
+  const handleClick = (e, videoId) => {
+    if (isTouchDevice) { // タッチデバイスの場合
+      if (!(videoId in clickStates) || !clickStates[videoId]) {
+        // 最初のクリック時
+        e.preventDefault(); // リンク先に飛ばないようにする
+        setClickStates({[videoId]: true}); // クリック状態をtrueにする (他のクリック状態はリセット)
+      } else {
+        // 2回目のクリック時
+        setClickStates(prevState => ({...prevState, [videoId]: false})); // クリック状態をリセットする
+      }
+    }
+  }
 
   useEffect(() => {
     fetch(`/api/${group_name}`)
@@ -139,6 +166,8 @@ const LineCharts = () => {
 
 
   let Lines = video_obj_List.map((video) => {
+    let video_imageURL = `http://img.youtube.com/vi/${video.videoID}/maxresdefault.jpg`
+
     let waiting_times = [];
     let watching_times = [];
     let times = [];
@@ -207,9 +236,31 @@ const LineCharts = () => {
       <div>
         <div className="video-title">
           <Link href={video.videoURL} target="_blank">
-            {video.videoTitle}
+            <div
+                onClick={(e) => handleClick(e, video.videoID)}
+                onMouseEnter={() => {
+                  setShowImage(prevState => ({...prevState, [video.videoID]: true }));  // ホバーしたビデオのIDのみtrueに設定
+                }}
+                onMouseLeave={() => {
+                  setShowImage(prevState => ({...prevState, [video.videoID]: false }));  // ホバーが外れたらfalseに設定
+                }}
+                >
+                  {video.videoTitle}
+              </div>
+            
           </Link>
+          {(showImage[video.videoID] || clickStates[video.videoID]) &&  // クリック状態も確認
+            <div style={{ position: 'absolute' }}>
+                <Image 
+                  src={video_imageURL}  // stateから画像URLを取得
+                  alt={video.videoTitle}
+                  width={200}
+                  height={112}
+                />
+            </div>
+          }
         </div>
+
         <div className="MyLongChart">
           <Link href={`https://youtube.com/channel/`+video.channelID} target="_blank">
             <Image src={video.iconURL} className="icon" width="70" height="70"/>
