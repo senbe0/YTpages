@@ -1,6 +1,6 @@
 
 
-const Ad_eeo = () => {
+const Ad_right = () => {
     return(
         <div>
             <a target="_blank" href="https://px.a8.net/svt/ejp?a8mat=3T8P7K+25ZT0Y+CO4+15RZIP" rel="nofollow">
@@ -10,4 +10,4 @@ const Ad_eeo = () => {
     )
 }
 
-export default Ad_eeo
+export default Ad_right

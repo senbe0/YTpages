@@ -1,6 +1,6 @@
 
 
-const Ad_furyu_big = () => {
+const Ad_left = () => {
     return (
         <div>
             <a target="_blank" href="https://px.a8.net/svt/ejp?a8mat=3T8RK7+CVSP0Y+45DI+609HT" rel="nofollow">
@@ -10,4 +10,4 @@ const Ad_furyu_big = () => {
     )
 }
 
-export default Ad_furyu_big
+export default Ad_left
